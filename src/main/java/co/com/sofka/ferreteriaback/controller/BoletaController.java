@@ -1,6 +1,5 @@
 package co.com.sofka.ferreteriaback.controller;
 import co.com.sofka.ferreteriaback.model.BoletaProv;
-import co.com.sofka.ferreteriaback.service.BoletaService;
 import co.com.sofka.ferreteriaback.service.impl.BoletaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class BoletaController {
 
     @Autowired
-    private BoletaService boletaService;
+    private BoletaServiceImpl boletaService;
 
     @PostMapping("/boleta")
     @ResponseStatus(HttpStatus.CREATED)
@@ -22,13 +21,13 @@ public class BoletaController {
         return this.boletaService.nuevaBoleta(boletaProv);
     }
 
-    @GetMapping("/boletas")
+    @GetMapping(value = "/boletas")
     @ResponseStatus(HttpStatus.OK)
     private Flux<BoletaProv> getBoletas() {
         return this.boletaService.getBoletas();
     }
 
-    @GetMapping("/boletas/{id}")
+    @GetMapping(value = "/boletas/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<BoletaProv> getBoletaById(@PathVariable("id") String id) {
         return this.boletaService.getBoletaById(id);

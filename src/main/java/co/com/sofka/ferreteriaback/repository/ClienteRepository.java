@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface ClienteRepository extends ReactiveMongoRepository<Cliente, String> {
-    Mono<Cliente> findByIdCliente(String id);
+    Mono<Cliente> findByClienteId(String id);
 }

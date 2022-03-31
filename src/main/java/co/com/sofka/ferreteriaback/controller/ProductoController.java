@@ -20,13 +20,13 @@ public class ProductoController {
         return this.productoService.agregarProducto(producto);
     }
 
-    @GetMapping("/productos")
+    @GetMapping(value="/productos")
     @ResponseStatus(HttpStatus.OK)
-    private Flux<Producto> getAllProducts() {
+    private Flux<Producto> getAllProductos() {
         return this.productoService.getProductos();
     }
 
-    @GetMapping("/productos/{id}")
+    @GetMapping(value="/productos/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<Producto> getProductById(@PathVariable("id") String id) {
         return this.productoService.getProductosById(id);
@@ -41,7 +41,7 @@ public class ProductoController {
 
     @PutMapping("/productos/{id}")
     private Mono<ResponseEntity<Producto>> updateProductById(@PathVariable("id") String id, @RequestBody Producto producto) {
-        return this.productoService.actualizarProductById(id, producto)
+        return this.productoService.actualizarProductoById(id, producto)
                 .flatMap(Producto -> Mono.just(ResponseEntity.ok(producto)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }

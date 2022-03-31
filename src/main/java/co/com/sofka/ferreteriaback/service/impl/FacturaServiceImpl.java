@@ -4,13 +4,11 @@ import co.com.sofka.ferreteriaback.model.Factura;
 import co.com.sofka.ferreteriaback.repository.FacturaRepository;
 import co.com.sofka.ferreteriaback.service.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RestController
-@CrossOrigin(origins = "*")
+@Service
 public class FacturaServiceImpl implements FacturaService {
     @Autowired
     private FacturaRepository facturaRepository;
@@ -27,19 +25,19 @@ public class FacturaServiceImpl implements FacturaService {
 
     @Override
     public Mono<Factura> facturaById(String id) {
-        return this.facturaRepository.findByIdFactura(id);
+        return this.facturaRepository.findByFacturaId(id);
     }
 
     @Override
     public Mono<Factura> deleteFacturaById(String id) {
-        return this.facturaRepository.findByIdFactura(id)
+        return this.facturaRepository.findByFacturaId(id)
                 .flatMap(factura -> this.facturaRepository.deleteById(factura.facturaId())
                         .thenReturn(factura));
     }
 
     @Override
     public Mono<Factura> actualizaFacturaById(String id, Factura factura) {
-        return this.facturaRepository.findByIdFactura(id)
+        return this.facturaRepository.findByFacturaId(id)
                 .flatMap(Factura -> {
                     factura.setFacturaId(id);
                     return crearFactura(factura);

@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface ProductoRepository extends ReactiveMongoRepository<Producto, String> {
-    Mono<Producto> findByIdProducto(String id);
+    Mono<Producto> findByProductoId(String id);
 }

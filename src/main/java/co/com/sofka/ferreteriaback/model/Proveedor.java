@@ -1,10 +1,12 @@
 package co.com.sofka.ferreteriaback.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 import java.util.UUID;
 
+@Document(collection = "proveedor")
 public class Proveedor {
 
     @Id

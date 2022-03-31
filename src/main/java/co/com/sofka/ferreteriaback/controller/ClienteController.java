@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8080")
 public class ClienteController {
     @Autowired
     ClienteServiceImpl clienteServiceImpl;
@@ -21,13 +21,13 @@ public class ClienteController {
         return this.clienteServiceImpl.AgregarCliente(cliente);
     }
 
-    @GetMapping("/clientes")
+    @GetMapping(value="/clientes")
     @ResponseStatus(HttpStatus.OK)
     private Flux<Cliente> TraerClientes() {
         return this.clienteServiceImpl.TraerClientes();
     }
 
-    @GetMapping("/clientes/{id}")
+    @GetMapping(value="/clientes/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<Cliente> ClienteById(@PathVariable("id") String id) {
         return this.clienteServiceImpl.ClienteById(id);

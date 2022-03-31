@@ -20,13 +20,13 @@ public class ProveedorController {
         return this.proveedorServiceImpl.nuevoProveedor(proveedor);
     }
 
-    @GetMapping("/proveedores")
+    @GetMapping(value="/proveedores")
     @ResponseStatus(HttpStatus.OK)
     private Flux<Proveedor> getProveedores() {
         return this.proveedorServiceImpl.getProveedores();
     }
 
-    @GetMapping("/proveedores/{id}")
+    @GetMapping(value="/proveedores/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<Proveedor> getProveedoresById(@PathVariable("id") String id) {
         return this.proveedorServiceImpl.getProveedoresById(id);

@@ -4,9 +4,12 @@ import co.com.sofka.ferreteriaback.model.BoletaProv;
 import co.com.sofka.ferreteriaback.repository.BoletaRepository;
 import co.com.sofka.ferreteriaback.service.BoletaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+
+@Service
 public class BoletaServiceImpl implements BoletaService {
 
     @Autowired
@@ -24,19 +27,19 @@ public class BoletaServiceImpl implements BoletaService {
 
     @Override
     public Mono<BoletaProv> getBoletaById(String id) {
-        return this.boletaRepository.findByIdVolante(id);
+        return this.boletaRepository.findByIdBoleta(id);
     }
 
     @Override
     public Mono<BoletaProv> deleteBoletaById(String id) {
-        return this.boletaRepository.findByIdVolante(id)
+        return this.boletaRepository.findByIdBoleta(id)
                 .flatMap(volante -> boletaRepository.deleteById(volante.idBoleta())
                         .thenReturn(volante));
     }
 
     @Override
     public Mono<BoletaProv> actualizarBoletaById(String id, BoletaProv boletaProv) {
-        return this.boletaRepository.findByIdVolante(id)
+        return this.boletaRepository.findByIdBoleta(id)
                 .flatMap(volante -> {
                     boletaProv.setIdBoleta(id);
                     return nuevaBoleta(boletaProv);

@@ -27,19 +27,19 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Mono<Cliente> ClienteById(String id) {
-        return this.clienteRepository.findByIdCliente(id);
+        return this.clienteRepository.findByClienteId(id);
     }
 
     @Override
     public Mono<Cliente> deleteClienteById(String id) {
-        return this.clienteRepository.findByIdCliente(id)
+        return this.clienteRepository.findByClienteId(id)
                 .flatMap(cliente -> this.clienteRepository.deleteById(cliente.clienteId())
                         .thenReturn(cliente));
     }
 
     @Override
     public Mono<Cliente> actualizarClientById(String id, Cliente cliente) {
-        return this.clienteRepository.findByIdCliente(id)
+        return this.clienteRepository.findByClienteId(id)
                 .flatMap(clienteact -> {
                     cliente.setClienteId(id);
                     return AgregarCliente(cliente);

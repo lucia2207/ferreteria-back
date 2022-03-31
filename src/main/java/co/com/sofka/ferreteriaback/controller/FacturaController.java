@@ -20,13 +20,13 @@ public class FacturaController {
         return this.facturaServiceImpl.crearFactura(factura);
     }
 
-    @GetMapping("/facturas")
+    @GetMapping(value="/facturas")
     @ResponseStatus(HttpStatus.OK)
     private Flux<Factura> facturaById() {
         return this.facturaServiceImpl.todasLasFacturas();
     }
 
-    @GetMapping("/facturas/{id}")
+    @GetMapping(value="/facturas/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<Factura> facturaById(@PathVariable("id") String id) {
         return this.facturaServiceImpl.facturaById(id);

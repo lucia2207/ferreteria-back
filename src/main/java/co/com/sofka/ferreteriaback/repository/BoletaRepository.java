@@ -7,6 +7,6 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface BoletaRepository extends ReactiveMongoRepository<BoletaProv, String> {
 
-    Mono<BoletaProv> findByIdVolante(String idVolantes);
+    Mono<BoletaProv> findByIdBoleta(String idVolantes);
 
 }

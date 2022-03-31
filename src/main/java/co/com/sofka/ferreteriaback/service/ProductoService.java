@@ -10,5 +10,5 @@ public interface ProductoService {
     Flux<Producto> getProductos();
     Mono<Producto> getProductosById(String id);
     Mono<Producto> deleteProductoById(String id);
-    Mono<Producto> actualizarProductById(String id, Producto producto);
+    Mono<Producto> actualizarProductoById(String id, Producto producto);
 }
