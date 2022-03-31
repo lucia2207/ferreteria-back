@@ -18,27 +18,11 @@ public class Cliente {
 
     private String docId;
 
-    public String clienteId() {
-        return clienteId;
-    }
-
-    public String nombreCliente() {
-        return nombreCliente;
-    }
-
-    public String telefono() {
-        return telefono;
-    }
-
-    public String docId() {
-        return docId;
-    }
-
     public Cliente(String clienteId, String nombreCliente, String telefono, String docId) {
-        clienteId = clienteId;
-        nombreCliente = nombreCliente;
-        telefono = telefono;
-        docId = docId;
+        this.clienteId = clienteId;
+        this.nombreCliente = nombreCliente;
+        this.telefono = telefono;
+        this.docId = docId;
     }
 
 
@@ -69,5 +53,21 @@ public class Cliente {
 
     public void setDocId(String docId) {
         this.docId = docId;
+    }
+
+    public String getClienteId() {
+        return clienteId;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDocId() {
+        return docId;
     }
 }

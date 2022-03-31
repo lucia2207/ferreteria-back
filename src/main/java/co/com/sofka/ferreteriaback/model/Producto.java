@@ -21,11 +21,17 @@ public class Producto {
         this.precioProd = precioProd;
     }
 
-    public String productoId() { return productoId; }
+    public String getProductoId() {
+        return productoId;
+    }
 
-    public String nombreProd() { return nombreProd; }
+    public String getNombreProd() {
+        return nombreProd;
+    }
 
-    public Double precioProd() { return precioProd; }
+    public Double getPrecioProd() {
+        return precioProd;
+    }
 
     @Override
     public boolean equals(Object o) {

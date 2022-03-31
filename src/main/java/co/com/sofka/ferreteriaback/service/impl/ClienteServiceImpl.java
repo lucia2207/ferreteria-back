@@ -33,7 +33,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Mono<Cliente> deleteClienteById(String id) {
         return this.clienteRepository.findByClienteId(id)
-                .flatMap(cliente -> this.clienteRepository.deleteById(cliente.clienteId())
+                .flatMap(cliente -> this.clienteRepository.deleteById(cliente.getClienteId())
                         .thenReturn(cliente));
     }
 

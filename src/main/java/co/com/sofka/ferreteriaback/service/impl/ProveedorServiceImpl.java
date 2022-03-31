@@ -31,7 +31,7 @@ public class ProveedorServiceImpl implements ProveedorService {
     @Override
     public Mono<Proveedor> deleteProveedorById(String id) {
         return this.proveedorRepository.findByProveedorId(id)
-                .flatMap(proveedor -> proveedorRepository.deleteById(proveedor.proveedorId())
+                .flatMap(proveedor -> proveedorRepository.deleteById(proveedor.getProveedorId())
                         .thenReturn(proveedor));
     }
 

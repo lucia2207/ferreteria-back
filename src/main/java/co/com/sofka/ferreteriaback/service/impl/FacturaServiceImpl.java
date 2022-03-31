@@ -31,7 +31,7 @@ public class FacturaServiceImpl implements FacturaService {
     @Override
     public Mono<Factura> deleteFacturaById(String id) {
         return this.facturaRepository.findByFacturaId(id)
-                .flatMap(factura -> this.facturaRepository.deleteById(factura.facturaId())
+                .flatMap(factura -> this.facturaRepository.deleteById(factura.getFacturaId())
                         .thenReturn(factura));
     }
 

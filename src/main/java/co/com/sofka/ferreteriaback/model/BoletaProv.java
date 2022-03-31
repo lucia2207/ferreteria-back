@@ -30,15 +30,25 @@ public class BoletaProv {
         this.docIdProv = docIdProv;
     }
 
-    public String idBoleta() {  return idBoleta; }
+    public String getIdBoleta() {
+        return idBoleta;
+    }
 
-    public String nombreProv() { return nombreProv; }
+    public String getNombreProv() {
+        return nombreProv;
+    }
 
-    public Date fecha() { return Fecha; }
+    public Date getFecha() {
+        return Fecha;
+    }
 
-    public List<Producto> listaProductos() { return listaProductos; }
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
 
-    public String docIdProv() {  return docIdProv; }
+    public String getDocIdProv() {
+        return docIdProv;
+    }
 
     public void setIdBoleta(String idBoleta) {
         this.idBoleta = idBoleta;

@@ -31,7 +31,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public Mono<Producto> deleteProductoById(String id) {
         return this.productoRepository.findByProductoId(id)
-                .flatMap(producto -> productoRepository.deleteById(producto.productoId())
+                .flatMap(producto -> productoRepository.deleteById(producto.getProductoId())
                         .thenReturn(producto));
     }
 

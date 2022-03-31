@@ -33,7 +33,7 @@ public class BoletaServiceImpl implements BoletaService {
     @Override
     public Mono<BoletaProv> deleteBoletaById(String id) {
         return this.boletaRepository.findByIdBoleta(id)
-                .flatMap(volante -> boletaRepository.deleteById(volante.idBoleta())
+                .flatMap(volante -> boletaRepository.deleteById(volante.getIdBoleta())
                         .thenReturn(volante));
     }
 

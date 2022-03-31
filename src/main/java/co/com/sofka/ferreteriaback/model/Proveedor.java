@@ -25,22 +25,21 @@ public class Proveedor {
         this.docProvId = docProvId;
     }
 
-    public String proveedorId() {
+    public String getProveedorId() {
         return proveedorId;
     }
 
-    public String nombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public String telefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public String docProvId() {
+    public String getDocProvId() {
         return docProvId;
     }
-
 
     @Override
     public boolean equals(Object o) {

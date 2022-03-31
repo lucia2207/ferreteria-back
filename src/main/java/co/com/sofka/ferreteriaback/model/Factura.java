@@ -36,19 +36,33 @@ public class Factura {
         this.listaProductos = listaProductos;
     }
 
-    public String facturaId() {  return facturaId; }
+    public String getFacturaId() {
+        return facturaId;
+    }
 
-    public Date fechaFactura() { return fechaFactura; }
+    public Date getFechaFactura() {
+        return fechaFactura;
+    }
 
-    public String vendedor() { return vendedor; }
+    public String getVendedor() {
+        return vendedor;
+    }
 
-    public String nombreClienteF() { return nombreClienteF; }
+    public String getNombreClienteF() {
+        return nombreClienteF;
+    }
 
-    public Double precioTotal() { return precioTotal; }
+    public Double getPrecioTotal() {
+        return precioTotal;
+    }
 
-    public String numFactura() { return numFactura; }
+    public String getNumFactura() {
+        return numFactura;
+    }
 
-    public List<Producto> listaProductos() { return listaProductos; }
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
 
     public void setFacturaId(String facturaId) {
         this.facturaId = facturaId;
