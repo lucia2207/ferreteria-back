@@ -4,9 +4,13 @@ import co.com.sofka.ferreteriaback.model.Factura;
 import co.com.sofka.ferreteriaback.repository.FacturaRepository;
 import co.com.sofka.ferreteriaback.service.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@RestController
+@CrossOrigin(origins = "*")
 public class FacturaServiceImpl implements FacturaService {
     @Autowired
     private FacturaRepository facturaRepository;
