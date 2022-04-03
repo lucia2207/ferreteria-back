@@ -29,18 +29,20 @@ public class InventarioServiceImpl implements InventarioService {
         return this.inventarioRepository.findById(id);
     }
 
+
     @Override
     public Mono<Inventario> deleteinventarioById(String id) {
         return this.inventarioRepository.findById(id)
-                .flatMap(inventario -> this.inventarioRepository.deleteById(inventario.getInventario())
+                .flatMap(inventario -> this.inventarioRepository.deleteById(inventario.getId())
                         .thenReturn(inventario));
     }
+
 
     @Override
     public Mono<Inventario> actualizarInventarioById(String id, Inventario inventario) {
         return this.inventarioRepository.findById(id)
                 .flatMap(inventarioact -> {
-                    inventario.setInventario(id);
+                    inventario.setId(id);
                     return nuevoInventario(inventario);
                 })
                 .switchIfEmpty(Mono.empty());

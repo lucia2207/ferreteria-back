@@ -18,6 +18,10 @@ public class Cliente {
 
     private String docId;
 
+    public Cliente(){
+
+    }
+
     public Cliente(String clienteId, String nombreCliente, String telefono, String docId) {
         this.clienteId = clienteId;
         this.nombreCliente = nombreCliente;
@@ -70,4 +74,15 @@ public class Cliente {
     public String getDocId() {
         return docId;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id='" + clienteId + '\'' +
+                ", nombre='" + nombreCliente + '\'' +
+                ", celular='" + telefono + '\'' +
+                ", documentoID='" + docId + '\'' +
+                '}';
+    }
+
 }

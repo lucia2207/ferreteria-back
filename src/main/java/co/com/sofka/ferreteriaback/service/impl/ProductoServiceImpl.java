@@ -31,7 +31,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public Mono<Producto> deleteProductoById(String id) {
         return this.productoRepository.findByProductoId(id)
-                .flatMap(producto -> productoRepository.deleteById(producto.getProductoId())
+                .flatMap(producto -> productoRepository.deleteById(producto.getId())
                         .thenReturn(producto));
     }
 
@@ -39,7 +39,7 @@ public class ProductoServiceImpl implements ProductoService {
     public Mono<Producto> actualizarProductoById(String id, Producto producto) {
         return this.productoRepository.findByProductoId(id)
                 .flatMap(productoo -> {
-                    producto.setProductoId(id);
+                    producto.setId(id);
                     return agregarProducto(producto);
                 })
                 .switchIfEmpty(Mono.empty());

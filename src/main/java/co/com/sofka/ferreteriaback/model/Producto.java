@@ -9,28 +9,82 @@ import java.util.UUID;
 @Document(collection = "inventario")
 public class Producto {
     @Id
-    private String productoId = UUID.randomUUID().toString().substring(0, 10);
+    private String id = UUID.randomUUID().toString().substring(0, 10);
 
-    private String nombreProd;
+    private String nombre;
 
-    private Double precioProd;
+    private int cantidad;
 
-    public Producto(String producoId, String nombreProd, Double precioProd) {
-        this.productoId = producoId;
-        this.nombreProd = nombreProd;
-        this.precioProd = precioProd;
+    private double precio;
+
+    private Proveedor proveedor;
+
+    public Producto() {
     }
 
-    public String getProductoId() {
-        return productoId;
+    public Producto(String id, String nombre, double precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
-    public String getNombreProd() {
-        return nombreProd;
+    public Producto(String id, String nombre, int cantidad, double precio, Proveedor proveedor) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.proveedor = proveedor;
     }
 
-    public Double getPrecioProd() {
-        return precioProd;
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio=" + precio +
+                ", proveedor=" + proveedor +
+                '}';
     }
 
     @Override
@@ -38,23 +92,11 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Objects.equals(productoId, producto.productoId) && Objects.equals(nombreProd, producto.nombreProd) && Objects.equals(precioProd, producto.precioProd);
+        return cantidad == producto.cantidad && Double.compare(producto.precio, precio) == 0 && Objects.equals(id, producto.id) && Objects.equals(nombre, producto.nombre) && Objects.equals(proveedor, producto.proveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productoId, nombreProd, precioProd);
-    }
-
-    public void setProductoId(String productoId) {
-        this.productoId = productoId;
-    }
-
-    public void setNombreProd(String nombreProd) {
-        this.nombreProd = nombreProd;
-    }
-
-    public void setPrecioProd(Double precioProd) {
-        this.precioProd = precioProd;
+        return Objects.hash(id);
     }
 }

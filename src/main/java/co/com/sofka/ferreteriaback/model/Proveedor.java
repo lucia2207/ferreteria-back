@@ -18,6 +18,10 @@ public class Proveedor {
 
     private String docProvId;
 
+    public Proveedor() {
+
+    }
+
     public Proveedor(String proveedorId, String nombre, String telefono, String docProvId) {
         this.proveedorId = proveedorId;
         this.nombre = nombre;
@@ -39,6 +43,16 @@ public class Proveedor {
 
     public String getDocProvId() {
         return docProvId;
+    }
+
+    @Override
+    public String toString() {
+        return "Proveedor{" +
+                "idproveedor='" + proveedorId + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", docProvId='" + docProvId + '\'' +
+                '}';
     }
 
     @Override

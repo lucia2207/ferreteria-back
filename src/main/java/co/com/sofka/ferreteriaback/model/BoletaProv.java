@@ -22,6 +22,10 @@ public class BoletaProv {
 
     private String docIdProv;
 
+    public BoletaProv(){
+
+    }
+
     public BoletaProv(String idBoleta, String nombreProv, Date fecha, List<Producto> listaProductos, String docIdProv) {
         this.idBoleta = idBoleta;
         this.nombreProv = nombreProv;
@@ -68,6 +72,17 @@ public class BoletaProv {
 
     public void setDocIdProv(String docIdProv) {
         this.docIdProv = docIdProv;
+    }
+
+    @Override
+    public String toString() {
+        return "Volante{" +
+                "id='" + idBoleta + '\'' +
+                ", nombreProveedor='" + nombreProv + '\'' +
+                ", productList=" + listaProductos +
+                ", fecha=" + Fecha +
+                ", docIdProv='" + docIdProv + '\'' +
+                '}';
     }
 
     @Override

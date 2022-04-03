@@ -10,15 +10,14 @@ import reactor.core.publisher.Mono;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ClienteController {
     @Autowired
     ClienteServiceImpl clienteServiceImpl;
 
     @PostMapping("/cliente")
-    @ResponseStatus(HttpStatus.CREATED)
-    private Mono<Cliente> AgregarCliente(@RequestBody Cliente cliente) {
-        return this.clienteServiceImpl.AgregarCliente(cliente);
+    private Mono<Cliente> AgregarCliente(@RequestBody Cliente clienteDTO) {
+        return this.clienteServiceImpl.AgregarCliente(clienteDTO);
     }
 
     @GetMapping("/clientes")
