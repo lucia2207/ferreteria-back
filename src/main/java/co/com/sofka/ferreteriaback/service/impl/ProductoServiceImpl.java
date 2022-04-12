@@ -25,19 +25,19 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public Mono<Producto> getProductosById(String id) {
-        return this.productoRepository.findByProductoId(id);
+        return this.productoRepository.findById(id);
     }
 
     @Override
     public Mono<Producto> deleteProductoById(String id) {
-        return this.productoRepository.findByProductoId(id)
+        return this.productoRepository.findById(id)
                 .flatMap(producto -> productoRepository.deleteById(producto.getId())
                         .thenReturn(producto));
     }
 
     @Override
     public Mono<Producto> actualizarProductoById(String id, Producto producto) {
-        return this.productoRepository.findByProductoId(id)
+        return this.productoRepository.findById(id)
                 .flatMap(productoo -> {
                     producto.setId(id);
                     return agregarProducto(producto);

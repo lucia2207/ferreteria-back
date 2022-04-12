@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 import java.util.UUID;
 
-@Document(collection = "inventario")
+@Document(collection = "producto")
 public class Producto {
     @Id
-    private String id = UUID.randomUUID().toString().substring(0, 10);
+    private String productoId = UUID.randomUUID().toString().substring(0, 10);
 
     private String nombre;
 
@@ -23,13 +23,13 @@ public class Producto {
     }
 
     public Producto(String id, String nombre, double precio) {
-        this.id = id;
+        this.productoId = id;
         this.nombre = nombre;
         this.precio = precio;
     }
 
     public Producto(String id, String nombre, int cantidad, double precio, Proveedor proveedor) {
-        this.id = id;
+        this.productoId = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -53,11 +53,11 @@ public class Producto {
     }
 
     public String getId() {
-        return id;
+        return productoId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.productoId = id;
     }
 
     public String getNombre() {
@@ -79,7 +79,7 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "id='" + id + '\'' +
+                "id='" + productoId + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", cantidad=" + cantidad +
                 ", precio=" + precio +
@@ -92,11 +92,11 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return cantidad == producto.cantidad && Double.compare(producto.precio, precio) == 0 && Objects.equals(id, producto.id) && Objects.equals(nombre, producto.nombre) && Objects.equals(proveedor, producto.proveedor);
+        return cantidad == producto.cantidad && Double.compare(producto.precio, precio) == 0 && Objects.equals(productoId, producto.productoId) && Objects.equals(nombre, producto.nombre) && Objects.equals(proveedor, producto.proveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(productoId);
     }
 }
